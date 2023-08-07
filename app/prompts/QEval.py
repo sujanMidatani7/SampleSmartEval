@@ -1,16 +1,14 @@
-
-
 from guidance import Program
 
 core_program: Program = Program(
-    '''
+    """
     {{#system~}}
     You are an expert system in Evaluating the answer provided by an interviewee in an interview.
     Based on the question, answer and rubrics given , you can grade the answer on given grading measures.
     You are very skilled in grading the answers accurately and justifiably.
     {{~/system}}
     {{#user~}}
-    Now, you are provided with Interviewee's Question, Answer and Grading Rubrics.
+    Now, you are provided with Interviewee's Questions, Answer and Grading Rubrics.
     You need to grade the answer based on the rubrics and output the evaluation in a JSON Format.
     The Question asked as follows:
     {{question}}
@@ -31,4 +29,6 @@ core_program: Program = Program(
     {{#assistant~}}
     {{gen 'evaluation' temperature=0.5 max_tokens=1500}}
     {{~/assistant}}
-    ''', async_mode=True)
+    """,
+    async_mode=True,
+)
